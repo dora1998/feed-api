@@ -16,21 +16,21 @@ func main() {
 		log.Fatal(err)
 		return
 	}
-	writeFeed("/var/feed/rss", rss)
+	writeFeed("/var/feed/rss.xml", rss)
 
 	atom, err := feed.ToAtom()
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
-	writeFeed("/var/feed/atom", atom)
+	writeFeed("/var/feed/atom.xml", atom)
 
 	json, err := feed.ToJSON()
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
-	writeFeed("/var/feed/json", json)
+	writeFeed("/var/feed/json.json", json)
 }
 
 func fetch() *feeder.Feed {
