@@ -1,8 +1,9 @@
-version: "3.7"
+version: '3.7'
 
 services:
   feed-api:
     build:
-      context: "."
+      context: '.'
     volumes:
-      - "./feed:/var/feed/:cached"
+      - './feed:/var/feed/:cached'
+      - /etc/localtime:/etc/localtime:ro
