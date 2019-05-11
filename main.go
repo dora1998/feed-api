@@ -55,7 +55,7 @@ func fetch() *feeder.Feed {
 }
 
 func writeFeed(path string, body string) error {
-	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE, 0666)
+	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|O_TRUNC, 0644)
 	if err != nil {
 		return err
 	}
