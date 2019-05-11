@@ -35,7 +35,7 @@ func main() {
 
 func fetch() *feeder.Feed {
 	rssFetcher := feeder.NewRSSFetcher("http://dorapocket.starfree.jp/feed/")
-	qiitaFetcher := feeder.NewQiitaFetcher("https://qiita.com/api/v2/users/_dorayaki_/items")
+	qiitaFetcher := feeder.NewQiitaFetcher("https://qiita.com/api/v2/users/dora1998/items")
 
 	// Fetch data using goroutine.
 	items := feeder.Crawl(rssFetcher, qiitaFetcher)
