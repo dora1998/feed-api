@@ -6,7 +6,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "SO:ME:FIN:G:ER:PR:IN:T"
+            - "2a:04:4f:15:26:04:13:b9:38:96:6c:b8:8e:0b:79:33"
       - run: ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "~/deploy.sh --rebuild feed-api"
 workflows:
   version: 2
