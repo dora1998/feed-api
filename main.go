@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"sort"
 	"time"
 
 	"github.com/naoki-kishi/feeder"
@@ -39,6 +40,9 @@ func fetch() *feeder.Feed {
 
 	// Fetch data using goroutine.
 	items := feeder.Crawl(rssFetcher, qiitaFetcher)
+	sort.Slice(items.Items, func(i, j int) bool {
+		return items.Items[i].Created.After(*items.Items[j].Created)
+	})
 
 	feed := &feeder.Feed{
 		Title:       "My feeds",
