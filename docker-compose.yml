@@ -6,4 +6,5 @@ services:
       context: '.'
     volumes:
       - './feed:/var/feed/:cached'
-      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=`ls -la /etc/localtime | cut -d/ -f8-9`
