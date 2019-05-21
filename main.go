@@ -35,11 +35,12 @@ func main() {
 }
 
 func fetch() *feeder.Feed {
-	rssFetcher := feeder.NewRSSFetcher("http://dorapocket.starfree.jp/feed/")
+	rssGeneralBlogFetcher := feeder.NewRSSFetcher("http://dorapocket.starfree.jp/feed/")
 	qiitaFetcher := feeder.NewQiitaFetcher("https://qiita.com/api/v2/users/dora1998/items")
+	rssTechBlogFetcher := feeder.NewRSSFetcher("https://blog.minoru.dev/index.xml")
 
 	// Fetch data using goroutine.
-	items := feeder.Crawl(rssFetcher, qiitaFetcher)
+	items := feeder.Crawl(rssGeneralBlogFetcher, qiitaFetcher, rssTechBlogFetcher)
 	sort.Slice(items.Items, func(i, j int) bool {
 		return items.Items[i].Created.After(*items.Items[j].Created)
 	})
